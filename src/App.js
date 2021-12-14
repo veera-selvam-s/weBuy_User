@@ -9,7 +9,6 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/:slug" component={ProductListPage} />
         </Switch>
       </Router>
     </div>

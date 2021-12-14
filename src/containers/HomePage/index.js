@@ -1,4 +1,6 @@
 import React from 'react'
+import Header from "../../components/Header";
+import MenuHeader from "../../components/MenuHeader";
 //import Layout from '../../components/Layout'
 
 /**
@@ -7,11 +9,12 @@ import React from 'react'
 **/
 
 const HomePage = (props) => {
-  return(
+  return (
     <div>
-        HomePage
+      <Header />
+      <MenuHeader />
     </div>
-   )
+  );
 
  }
 
