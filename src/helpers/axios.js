@@ -1,15 +1,22 @@
-import axios from 'axios';//axios package
-import { api } from '../urlConfig';//getting base url from urlconfig
+import axios from 'axios';
+import { api } from '../urlConfig';
+import store from '../store';
+
 const token = window.localStorage.getItem('token');
 
-const axiosInstance = axios.create({ //creating axios instance
-    baseURL: api,//assinged base url
+const axiosIntance = axios.create({
+    baseURL: api,
     headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        "Access-Control-Allow-Origin": true,
-        "Access-Control-Allow-Credentials": true,
-        'Authorization':token ? `Bearer ${token}` : ''
+        'Authorization': token ? `Bearer ${token}` : ''
     }
 });
 
-export default axiosInstance;
+axiosIntance.interceptors.request.use((req) => {
+    const { auth } = store.getState();
+    if(auth.token){
+        req.headers.Authorization = `Bearer ${auth.token}`;
+    }
+    return req;
+})
+
+export default axiosIntance;
