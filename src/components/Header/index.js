@@ -19,9 +19,13 @@ import {NavLink} from 'react-router-dom';
 
 const Header = (props) => {
   const [loginModal, setLoginModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const auth = useSelector(state => state.auth);
+  const [signup, setSignup] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const userLogin = () => {
@@ -69,7 +73,13 @@ const Header = (props) => {
     return (
       <DropdownMenu
         menu={
-          <a className="loginButton" onClick={() => setLoginModal(true)}>
+          <a
+            className="loginButton"
+            onClick={() => {
+              setSignup(false);
+              setLoginModal(true);
+            }}
+          >
             Login
           </a>
         }
@@ -91,7 +101,15 @@ const Header = (props) => {
         firstMenu={
           <div className="firstmenu">
             <span>New Customer?</span>
-            <a style={{ color: '#2874f0' }}>Sign Up</a>
+            <a
+              onClick={() => {
+                setLoginModal(true);
+                setSignup(true);
+              }}
+              style={{ color: "#2874f0" }}
+            >
+              Sign Up
+            </a>
           </div>
         }
       />
@@ -100,10 +118,7 @@ const Header = (props) => {
 
   return (
     <div className="header">
-      <Modal
-        visible={loginModal}
-        onClose={() => setLoginModal(false)}
-      >
+      <Modal visible={loginModal} onClose={() => setLoginModal(false)}>
         <div className="authContainer">
           <div className="row">
             <div className="leftspace">
@@ -111,47 +126,56 @@ const Header = (props) => {
               <p>Get access to your Orders, Wishlist and Recommendations</p>
             </div>
             <div className="rightspace">
+              <div className="loginInputContainer">
+                {signup && (
+                  <MaterialInput
+                    type="text"
+                    label="First Name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                )}
+                {signup && (
+                  <MaterialInput
+                    type="text"
+                    label="Last Name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                )}
 
-            <div className="loginInputContainer">
-              <MaterialInput
-                type="text"
-                label="Enter Email/Enter Mobile Number"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-
-              <MaterialInput
-                type="password"
-                label="Enter Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              // rightElement={<a href="#">Forgot?</a>}
-              />
-
-              <MaterialButton
-                title="Login"
-                bgColor="#F7931E"
-                textColor="#ffffff"
-                style={{
-                  margin: '40px 0 20px 0'
-                }}
-                onClick={userLogin}
-              />
-
-              <p style={{textAlign: 'center'}}>OR</p>
-
-              <MaterialButton
-                title="Request OTP"
-                bgColor="#ffffff"
-                textColor="#2874f0"
-                style={{
-                  margin: '20px 0'
-                }}
-              />
-            </div>
-
-
-
+                <MaterialInput
+                  type="text"
+                  label="Email/Mobile Number"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <MaterialInput
+                  type="password"
+                  label="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  // rightElement={<a href="#">Forgot?</a>}
+                />
+                <MaterialButton
+                  title={signup ? "Register" : "Login"}
+                  bgColor="#fb641b"
+                  textColor="#ffffff"
+                  style={{
+                    margin: "40px 0 20px 0",
+                  }}
+                  onClick={userLogin}
+                />
+                <p style={{ textAlign: "center" }}>OR</p>
+                <MaterialButton
+                  title="Request OTP"
+                  bgColor="#ffffff"
+                  textColor="#2874f0"
+                  style={{
+                    margin: "20px 0",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
