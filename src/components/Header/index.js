@@ -9,8 +9,9 @@ import {
   DropdownMenu
 } from '../MaterialUI';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, signout } from '../../actions';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { login, signout, getCartItems, signup as _signup } from "../../actions";
+import Cart from "../UI/Cart";
 
 /**
 * @author
@@ -28,9 +29,29 @@ const Header = (props) => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
+   // state cart value
+   const cart = useSelector((state) => state.cart);
+
+   const userSignup = () => {
+     const user = { firstName, lastName, email, password };
+     if (
+       firstName === "" ||
+       lastName === "" ||
+       email === "" ||
+       password === ""
+     ) {
+       return;
+     }
+ 
+     dispatch(_signup(user));
+   };
   const userLogin = () => {
-    dispatch(login({ email, password }));
-  }
+    if (signup) {
+      userSignup();
+    } else {
+      dispatch(login({ email, password }));
+    }
+  };
   const logout = () => {
     dispatch(signout());
   }
@@ -40,6 +61,11 @@ const Header = (props) => {
       setLoginModal(false)
     }
   }, [auth.authenticate]);
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
+
   const renderLoggedInMenu = () => {
     return (
       <DropdownMenu
@@ -240,8 +266,8 @@ const Header = (props) => {
           />
           <div>
             <a href={`/cart`} className="cart">
-              <IoIosCart />
-              <span style={{ margin: '0 10px' }}>Cart</span>
+              <Cart count={Object.keys(cart.cartItems).length} />
+              <span style={{ margin: "0 10px" }}>Cart</span>
             </a>
           </div>
         </div>
