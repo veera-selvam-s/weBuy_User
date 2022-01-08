@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsBySlug } from "../../../actions";
-import { generatePublicUrl } from "../../../urlConfig";
 import { Link } from "react-router-dom";
 import Card from "../../../components/UI/Card";
 import { MaterialButton } from "../../../components/MaterialUI";
 import Rating from "../../../components/UI/Rating";
 import Price from "../../../components/UI/Price";
+import { generatePublicUrl } from "../../../urlConfig";
 
 /**
  * @author

@@ -7,7 +7,7 @@ import "./style.css";
  * @function CartItem
  **/
 
-const CartItem = (props) => {
+ const CartItem = (props) => {
   const [qty, setQty] = useState(props.cartItem.qty);
 
   const { _id, name, price, img } = props.cartItem;
@@ -28,7 +28,7 @@ const CartItem = (props) => {
       <div className="flexRow">
         <div className="cartProImgContainer">
           <img src={generatePublicUrl(img)} alt={""} />
-        </div>
+          </div>
         <div className="cartItemDetails">
           <div>
             <p>{name}</p>
