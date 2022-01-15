@@ -9,7 +9,8 @@ import {
   DropdownMenu
 } from '../MaterialUI';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import { login, signout, getCartItems, signup as _signup } from "../../actions";
 import Cart from "../UI/Cart";
 
@@ -99,15 +100,16 @@ const Header = (props) => {
     return (
       <DropdownMenu
         menu={
-          <a
-            className="loginButton"
+          <Button
+          variant="contained"
+            id="loginButton"
             onClick={() => {
               setSignup(false);
               setLoginModal(true);
             }}
           >
             Login
-          </a>
+          </Button>
         }
         menus={[
           { label: 'My Profile', href: '', icon: null },
@@ -223,11 +225,13 @@ const Header = (props) => {
             <img src={logo} className="logoimage" alt="" />
           </NavLink>
         </div>
-
+        <div className="Navbrand">
+          <h1> WeBuy</h1>
+        </div>
         {/* logo ends here */}
 
         {/* search component */}
-        <div style={{
+        {/* <div style={{
           padding: '0 10px'
         }}>
           <div className="searchInputContainer">
@@ -242,7 +246,7 @@ const Header = (props) => {
             </div>
 
           </div>
-        </div>
+        </div> */}
         {/* search component ends here */}
 
         {/* right side menu */}
@@ -265,10 +269,10 @@ const Header = (props) => {
             ]}
           />
           <div>
-            <a href={`/cart`} className="cart">
+            <Link to={`/cart`} className="cart">
               <Cart count={Object.keys(cart.cartItems).length} />
               <span style={{ margin: "0 10px" }}>Cart</span>
-            </a>
+            </Link>
           </div>
         </div>
         {/* right side menu ends here */}

@@ -13,17 +13,21 @@
 }
 
 .logo{
-    width: 137px;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+  width:100%;
+  height:auto;
+  max-width:60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 .logo .logoimage{
     width: 69px;
     height:auto;
+}
+.Navbrand{
+  color:#fff;
+  padding-left: 2px;
 }
 .exploreText{ 
     font-size: 10px;
@@ -75,18 +79,10 @@
     justify-content: flex-end;
     align-items: center;
   }
-.loginButton {
-    display: block;
-    width: 100px;
-    height: 30px;
-    background: #FBB03B;
-    text-align: center;
-    line-height: 30px;
-    color: #000000;
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 12%;
+#loginButton {
+    
+    background-color: #FBB03B;
+    color:black;
   }
   .fullName{
     color: #FBB03B;
@@ -154,4 +150,19 @@
   box-sizing: border-box;
   padding: 0 30px;
   margin: 40px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .Navbrand{
+    font-size: xx-small;
+  }
+  .cart{
+    padding-left:0px;
+    padding-right: 0px;
+    width: 50px;
+    margin:0 0;
+  }
+  .menuHeader > ul {
+    margin: 0px 0px;
+  }
 }

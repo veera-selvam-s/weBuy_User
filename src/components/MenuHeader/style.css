@@ -18,11 +18,11 @@
 .menuHeader > ul > li > span{
     display: block;
     line-height: 40px;
-    cursor: pointer;
+    cursor: hand;
     padding: 0 20px;
     font-size: 14px;
 }
-.menuHeader > ul > li > span:hover{
+.menuHeader > ul > li > span:focus{
     color: #2874f0;
 }
 .menuHeader > ul > li > ul{
@@ -55,3 +55,17 @@
     text-decoration: none;
     color: #707070;
 }
+.link{
+    text-decoration: none;
+    color:black;
+}
+
+@media screen and (max-width: 700px) {
+    .menuHeader > ul {
+      margin: 0px 0px;
+    }
+    .menuHeader > ul >li > span{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+  }
