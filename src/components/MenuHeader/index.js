@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCategory } from '../../actions';
-import { List, ListItem, ListItemButton, ListItemText, Collapse } from '@mui/material';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-
-
-/**
-* @author
-* @function MenuHeader
-**/
+import TreeView from '@mui/lab/TreeView';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import TreeItem from '@mui/lab/TreeItem';
+import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 
 const MenuHeader = (props) => {
 
   const category = useSelector(state => state.category);
   const dispatch = useDispatch();
-  const isMobile = window.innerWidth <= 500;
-  const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const isMobile = window.innerWidth <= 700;  
 
 
   useEffect(() => {
@@ -35,10 +27,10 @@ const MenuHeader = (props) => {
       myCategories.push(
         <li key={category.name}>
           {
-            category.parentId ? <NavLink
+            category.parentId ? <Link
               to={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
               {category.name}
-            </NavLink> :
+            </Link> :
               <span>{category.name}</span>
           }
           {category.children.length > 0 ? (<ul>{renderCategories(category.children)}</ul>) : null}
@@ -48,58 +40,44 @@ const MenuHeader = (props) => {
     return myCategories;
   }
 
-  const renderCategoriesForMobile = (categories) => {
+  const TreeViewForMobile = (categories) => {
     let myCategories = [];
     for (let category of categories) {
       myCategories.push(
-        <List sx={{ width: '100%', bgcolor: 'background.paper' }}
-          component="nav"
-          aria-labelledby="nested-list-subheader">
+        <>
           {
             category.children.length > 0 ?
-            <List>
-                <ListItemButton onClick={handleClick}>
-                  <ListItemText primary={category.name} />
-                  {category.children.length !== null ? open ? <ExpandLess /> : <ExpandMore /> : null}
-                </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItemButton sx={{ pl: 4 }}>
-                      {category.children.length > 0 ? (<List>{renderCategoriesForMobile(category.children)}</List>) : null}
-                    </ListItemButton>
-                  </List>
-                </Collapse>
-              </List>
+              <TreeItem key={category._id} nodeId={category._id} label={category.name}>
+                {category.children.length > 0 ? TreeViewForMobile(category.children) : null}
+              </TreeItem>
               :
-              <ListItemButton>
               <NavLink className="link" to={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
-                <ListItemText
-                  primary={category.name} />
+                <TreeItem label={category.name} />
               </NavLink>
-              </ListItemButton>
-              
           }
-
-
-        </List>
-
-
-
-      );
+        </>
+      )
     }
-
     return myCategories;
   }
 
   if (isMobile) {
     return (
-      <>
-        <div className='smallMenuHeader'>
-          {category.categories.length > 0 ? renderCategoriesForMobile(category.categories) : null}
-        </div>
-      </>
+      <div className="smallMenuHeader">
+        <TreeView
+        aria-label="multi-select"
+        defaultCollapseIcon={<ExpandMoreIcon />}
+        multiSelect
+        defaultExpandIcon={<ChevronRightIcon />}
+        sx={{ width: '100%', bgcolor: 'background.paper' }}
+      >
+        {category.categories.length > 0 ? TreeViewForMobile(category.categories) : null}
+      </TreeView>
+      </div>
+      
     );
-  } else {
+  }
+  else {
     return (
       <div className="menuHeader">
         <ul>

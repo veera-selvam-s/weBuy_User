@@ -57,9 +57,16 @@
 }
 .link{
     text-decoration: none;
-    color:black;
+    color:rgb(0, 132, 255);
 }
-
+.smallMenuHeader{
+    padding:10px;
+    margin: 10px;
+    border-radius: 32px;
+    background: #ffffff;
+    box-shadow:  4px 4px 10px #9b9b9b,
+                -4px -4px 10px #ffffff;
+}
 @media screen and (max-width: 700px) {
     .menuHeader > ul {
       margin: 0px 0px;
