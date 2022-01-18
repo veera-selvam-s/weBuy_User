@@ -75,8 +75,8 @@
   -webkit-border-radius: 20px;
 border-radius: 10px;
 background: #fb641b;
--webkit-box-shadow: 5px 5px 10px #ad4513, -5px -5px 10px #ffffff;
-box-shadow: 5px 5px 10px #ad4513, -5px -5px 10px #ffffff;
+-webkit-box-shadow: 5px 5px 10px #bababa, -5px -5px 10px #ffffff;
+box-shadow: 5px 5px 10px #bababa, -5px -5px 10px #ffffff;
 }
 .materialButton:hover{
   box-shadow: 0 4px 6px 0 rgba(0,0,0,.12);

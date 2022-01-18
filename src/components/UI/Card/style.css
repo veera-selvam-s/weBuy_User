@@ -1,7 +1,10 @@
 .card{
     width: 100%;
+    padding: 10px;
     background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px !important;
+    border-radius: 10px;
+    box-shadow:  5px 5px 10px #bebebe,
+             -5px -5px 10px #ffffff;
 }
 .cardHeader{
     display: flex;

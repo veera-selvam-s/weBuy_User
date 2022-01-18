@@ -1,6 +1,11 @@
 .productContainer{
     width: 200px;
-    margin: 0 10px;
+    margin: 10px 20px;
+    padding:10px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: inset 5px 5px 10px #bebebe,
+            inset -5px -5px 10px #ffffff;
 }
 .productContainer .productImgContainer{
     width: 150px;

@@ -5,16 +5,15 @@ import {
     Modal,
     MaterialInput,
     MaterialButton,
-    DropdownMenu
 } from '../MaterialUI';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import ContactsIcon from '@mui/icons-material/Contacts';
+import { GiBuyCard } from 'react-icons/gi';
 import logo from '../../logo.png';
 import './style.css';
-import { IoIosArrowDown, IoIosCart, IoIosSearch } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Cart from "../UI/Cart";
 
@@ -77,10 +76,14 @@ const Headers = (props) => {
                 </Nav.Item>
                 <Nav.Item>
                     <Button
+
                         onClick={logout}
                     >
-                        <ContactsIcon />
-                        Logout
+                        <div className="Navitems">
+                            <LogoutIcon />
+                            &nbsp;Logout
+                        </div>
+
                     </Button>
                 </Nav.Item>
 
@@ -101,11 +104,12 @@ const Headers = (props) => {
                         }}
                     >
                         <LoginIcon />
-                        Login
+                        &nbsp;Login
                     </Button>
                 </Nav.Item>
                 <Nav.Item>
                     <Button
+                        className="navitems"
                         variant="text"
                         onClick={() => {
                             setLoginModal(true);
@@ -113,8 +117,11 @@ const Headers = (props) => {
                         }}
                         style={{ color: "#2874f0" }}
                     >
-                        <ContactsIcon />
-                        Sign Up
+                        <div className="Navitems">
+                            <ContactsIcon />
+                            &nbsp;Sign Up
+                        </div>
+
                     </Button>
                 </Nav.Item>
 
@@ -188,9 +195,17 @@ const Headers = (props) => {
             </Modal>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
                 <Container fluid>
-                    <img src={logo} style={logoStyle} alt="logo" />
-                    {/* <Navbar.Brand >Admin DashBoard</Navbar.Brand> */}
-                    <Link to="/" className="navbar-brand" style={{ fontWeight: '600' }}>weBuy</Link>
+                    <Navbar.Brand>
+                        <Link to="/">
+                            <img src={logo} style={logoStyle} alt="logo" />
+                        </Link>
+                        {/* <Navbar.Brand >Admin DashBoard</Navbar.Brand> */}
+                        <Link to="/" className="navbar-brand"
+                        style={{ fontWeight: '600' }}
+                        >
+                            &nbsp; weBuy</Link>
+                    </Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -208,15 +223,19 @@ const Headers = (props) => {
                                 renderLoggedInMenu() : renderNonLoggedInMenu()
                         }
                         <Nav.Item>
-                            <Link to={`/account/orders`} style={{textDecoration:'none'}}>
+                            <Link to={`/account/orders`} style={{ textDecoration: 'none' }}>
                                 <Button
-                                    variant="text"
 
+                                    style={{ color: '#fff' }}
                                     onClick={() => {
                                         !auth.authenticate && setLoginModal(true);
                                     }}
                                 >
-                                    Orders
+                                    <div className="Navitems">
+                                        <GiBuyCard />
+                                        &nbsp;Orders
+                                    </div>
+
                                 </Button>
                             </Link>
 

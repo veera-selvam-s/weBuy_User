@@ -7,6 +7,7 @@ import { MaterialButton } from "../../../components/MaterialUI";
 import Rating from "../../../components/UI/Rating";
 import Price from "../../../components/UI/Price";
 import { generatePublicUrl } from "../../../urlConfig";
+import './style.css';
 
 /**
  * @author
@@ -44,7 +45,7 @@ const ProductStore = (props) => {
               margin: "20px",
             }}
           >
-            <div style={{ display: "flex" }}>
+            <div className="cardBody" style={{ display: "flex",flexWrap:'wrap' }}>
               {product.productsByPrice[key].map((product) => (
                 <Link
                   to={`/${product.slug}/${product._id}/p`}

@@ -32,6 +32,7 @@ const ClothingAndAccessories = (props) => {
         }}
       >
         {product.products.map((product) => (
+          <div style={{display:'flex',flexWrap:'wrap'}}>
           <div className="caContainer">
             <Link
               className="caImgContainer"
@@ -46,6 +47,7 @@ const ClothingAndAccessories = (props) => {
                 {product.price}
               </div>
             </div>
+          </div>
           </div>
         ))}
       </Card>

@@ -1,5 +1,11 @@
 .caContainer{
     width: 250px;
+    margin: 10px 20px;
+    padding:10px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: inset 5px 5px 10px #bebebe,
+            inset -5px -5px 10px #ffffff;
 }
 .caImgContainer{
     width: 240px;
