@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { generatePublicUrl } from "../../../urlConfig";
 import "./style.css";
+import {MdRemoveShoppingCart} from 'react-icons/md';
 
 /**
  * @author
@@ -49,11 +50,11 @@ import "./style.css";
           <input value={qty} readOnly />
           <button onClick={onQuantityIncrement}>+</button>
         </div>
-        <button className="cartActionBtn">save for later</button>
         <button
           className="cartActionBtn"
           onClick={() => props.onRemoveCartItem(_id)}
         >
+          <MdRemoveShoppingCart />
           Remove
         </button>
       </div>

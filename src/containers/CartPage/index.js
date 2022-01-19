@@ -74,11 +74,20 @@ const CartPage = (props) => {
   return (
     <Layout>
       <div className="cartContainer" style={{ alignItems: "flex-start" }}>
+      <PriceDetails
+          totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
+            return qty + cart.cartItems[key].qty;
+          }, 0)}
+          totalPrice={Object.keys(cart.cartItems).reduce((totalPrice, key) => {
+            const { price, qty } = cart.cartItems[key];
+            return totalPrice + price * qty;
+          }, 0)}
+        />
         <Card
           headerLeft={`My Cart`}
           headerRight={<div>Deliver to</div>}
-          style={{ width: "calc(100% - 400px)", overflow: "hidden" }}
-        >
+          style={{ maxWidth: "500px", overflow: "hidden",marginTop:'20px' }}
+          >
           {Object.keys(cartItems).map((key, index) => (
             <CartItem
               key={index}
@@ -108,15 +117,7 @@ const CartPage = (props) => {
             </div>
           </div>
         </Card>
-        <PriceDetails
-          totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
-            return qty + cart.cartItems[key].qty;
-          }, 0)}
-          totalPrice={Object.keys(cart.cartItems).reduce((totalPrice, key) => {
-            const { price, qty } = cart.cartItems[key];
-            return totalPrice + price * qty;
-          }, 0)}
-        />
+        
       </div>
     </Layout>
   );
