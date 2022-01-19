@@ -1,5 +1,11 @@
+.cartContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
 .checkoutContainer{
-    width: calc(100% - 400px);
+    margin: 20px;
+    width: 100%;
+
 }
 .checkoutStep{
     box-sizing: border-box;
@@ -83,4 +89,12 @@
 .stepCompleted{
     padding: 0 0 20px 60px;
     font-size: 12px;
+}
+.newflex{
+    flex-wrap: wrap;
+}
+@media screen and(max-width:600px) {
+    .checkoutContainer{
+        width:100%;
+    }
 }

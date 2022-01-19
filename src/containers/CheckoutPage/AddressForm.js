@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAddress } from "../../actions";
 import { MaterialButton, MaterialInput } from "../../components/MaterialUI";
+import './style.css'
 
 /**
  * @author
@@ -99,7 +100,7 @@ const AddressForm = (props) => {
   const renderAddressForm = () => {
     return (
       <>
-        <div className="flexRow">
+        <div className="flexRow newflex">
           <div style={inputContainer}>
             <MaterialInput
               label="Name"
@@ -115,7 +116,7 @@ const AddressForm = (props) => {
             />
           </div>
         </div>
-        <div className="flexRow">
+        <div className="flexRow newflex">
           <div style={inputContainer}>
             <MaterialInput
               label="Pincode"
@@ -131,7 +132,7 @@ const AddressForm = (props) => {
             />
           </div>
         </div>
-        <div className="flexRow">
+        <div className="flexRow newflex">
           <div style={inputContainer}>
             <MaterialInput
               label="Address"
@@ -141,7 +142,7 @@ const AddressForm = (props) => {
           </div>
         </div>
 
-        <div className="flexRow">
+        <div className="flexRow newflex">
           <div style={inputContainer}>
             <MaterialInput
               label="City/District/Town"
@@ -157,7 +158,7 @@ const AddressForm = (props) => {
             />
           </div>
         </div>
-        <div className="flexRow">
+        <div className="flexRow newflex">
           <div style={inputContainer}>
             <MaterialInput
               label="Landmark (Optional)"
@@ -175,7 +176,7 @@ const AddressForm = (props) => {
         </div>
         <div>
           <label>Address Type</label>
-          <div className="flexRow">
+          <div className="flexRow newflex">
             <div>
               <input
                 type="radio"
@@ -196,12 +197,12 @@ const AddressForm = (props) => {
             </div>
           </div>
         </div>
-        <div className="flexRow">
+        <div className="flexRow newflex">
           <MaterialButton
             title="SAVE AND DELIVER HERE"
             onClick={onAddressSubmit}
             style={{
-              width: "250px",
+              width: "100%",
               margin: "20px 0",
             }}
           />

@@ -194,6 +194,16 @@ const CheckoutPage = (props) => {
   return (
     <Layout>
       <div className="cartContainer" style={{ alignItems: "flex-start" }}>
+        {/* Price Component */}
+        <PriceDetails
+          totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
+            return qty + cart.cartItems[key].qty;
+          }, 0)}
+          totalPrice={Object.keys(cart.cartItems).reduce((totalPrice, key) => {
+            const { price, qty } = cart.cartItems[key];
+            return totalPrice + price * qty;
+          }, 0)}
+        />
         <div className="checkoutContainer">
           {/* check if user logged in or not */}
           <CheckoutStep
@@ -322,16 +332,7 @@ const CheckoutPage = (props) => {
           />
         </div>
 
-        {/* Price Component */}
-        <PriceDetails
-          totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
-            return qty + cart.cartItems[key].qty;
-          }, 0)}
-          totalPrice={Object.keys(cart.cartItems).reduce((totalPrice, key) => {
-            const { price, qty } = cart.cartItems[key];
-            return totalPrice + price * qty;
-          }, 0)}
-        />
+        
       </div>
     </Layout>
   );
