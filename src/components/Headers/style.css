@@ -166,6 +166,7 @@ margin: 40px 0;
   padding-bottom: 15px;
   border-bottom-style: ridge;
   border-bottom-width: thin;
+  border-bottom-color: #2874f0;
 }
 }
 @media screen and (max-width: 700px) {

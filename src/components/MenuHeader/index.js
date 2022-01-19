@@ -13,7 +13,7 @@ const MenuHeader = (props) => {
 
   const category = useSelector(state => state.category);
   const dispatch = useDispatch();
-  const isMobile = window.innerWidth <= 700;  
+  const isMobile = window.innerWidth <= 990;  
 
 
   useEffect(() => {

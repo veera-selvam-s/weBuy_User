@@ -5,7 +5,7 @@ import HomePage from './containers/HomePage';
 import ProductListPage from './containers/ProductListPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn,updateCart } from './actions';
-import ProductDetailsPage from './containers/ProductDetailsPage';
+import ProductDetailsPages from './containers/ProductDetailsPages';
 import CartPage from './containers/CartPage';
 import CheckoutPage from './containers/CheckoutPage';
 import OrderPage from "./containers/OrderPage";
@@ -40,7 +40,7 @@ function App() {
           <Route path="/order_details/:orderId" component={OrderDetailsPage} />
           <Route
             path="/:productSlug/:productId/p"
-            component={ProductDetailsPage}
+            component={ProductDetailsPages}
           />
           <Route path="/:slug" component={ProductListPage} />
         </Switch>
