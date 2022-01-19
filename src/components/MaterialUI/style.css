@@ -71,14 +71,15 @@
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
   border: none;
   cursor: pointer;
-  -webkit-border-radius: 20px;
+  border-radius: 20px;
 border-radius: 10px;
 background: #fb641b;
--webkit-box-shadow: 5px 5px 10px #bababa, -5px -5px 10px #ffffff;
+box-shadow: 5px 5px 10px #bababa, -5px -5px 10px #ffffff;
 box-shadow: 5px 5px 10px #bababa, -5px -5px 10px #ffffff;
 }
 .materialButton:hover{
-  box-shadow: 0 4px 6px 0 rgba(0,0,0,.12);
+  box-shadow: inset 5px 5px 10px #afafaf,
+            inset -5px -5px 10px #ffffff;
 }
 
 /* Material dropdown */
