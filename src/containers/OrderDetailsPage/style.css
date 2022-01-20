@@ -32,15 +32,21 @@
     height: 75px;
     overflow: hidden;
     text-align: center;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: inset 3px 3px 5px #bebebe,
+            inset -3px -3px 5px #ffffff;
 }
 .delItemImgContainer > img{
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    padding:8px;
+
 }
 
 .orderTrack{
-    width: 400px;
+    width: 100%;
     display: flex;
 }
 .orderStatus{

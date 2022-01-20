@@ -7,10 +7,15 @@
     width: 80px;
     height: 80px;
     text-align: center;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: inset 3px 3px 5px #bebebe,
+            inset -3px -3px 5px #ffffff;
 }
 .orderImg{
     max-width: 80px;
     max-height: 80px;
+    padding:8px;
 }
 .orderRow{
     display: flex;

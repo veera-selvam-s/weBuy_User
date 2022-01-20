@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrder } from "../../actions";
+import { generatePublicUrl } from "../../urlConfig";
 import Layout from "../../components/Layout";
 import Card from "../../components/UI/Card";
 import Price from "../../components/UI/Price";
@@ -61,13 +62,14 @@ const OrderDetailsPage = (props) => {
     <Layout>
       <div
         style={{
-          width: "1160px",
-          margin: "10px auto",
+          width: "100%",
+          margin: "10px",
+          padding:'10px'
         }}
       >
         <Card
           style={{
-            margin: "10px 0",
+            margin: "10px",
           }}
         >
           <div className="delAdrContainer">
@@ -88,15 +90,17 @@ const OrderDetailsPage = (props) => {
 
         {orderDetails.items.map((item, index) => (
           <Card
-            style={{ display: "flex", padding: "20px 0", margin: "10px 0" }}
+            style={{ display: "flex", padding: "20px", margin: "10px" }}
           >
             <div className="flexRow">
               <div className="delItemImgContainer">
-                <img src={item.productId.productPictures[0].img} alt="" />
+                <img src={generatePublicUrl(
+                      item.productId.productPictures[0].img
+                    )} alt="" />
               </div>
               <div style={{ width: "250px" }}>
                 <div className="delItemName">{item.productId.name}</div>
-                <Price value={item.payablePrice} />
+                <Price value={item.payablePrice} /> &nbsp;x {item.purchasedQty}
               </div>
             </div>
             <div style={{ padding: "25px 50px" }}>

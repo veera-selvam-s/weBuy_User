@@ -39,8 +39,9 @@ const OrderPage = (props) => {
         />
         {user.orders.map((order) => {
           return order.items.map((item) => (
-            <Card style={{ display: "block", margin: "5px 0",padding:'10px' }}>
+            <Card style={{ display: "block", marginTop: "10px",marginBottom:'10px', padding: '10px' }}>
               <Link
+                style={{ textDecoration: 'none' }}
                 to={`/order_details/${order._id}`}
                 className="orderItemContainer"
               >
@@ -56,7 +57,7 @@ const OrderPage = (props) => {
                   <div className="orderName">{item.productId.name}</div>
                   <div className="orderPrice">
                     <BiRupee />
-                    {item.payablePrice}
+                    {item.payablePrice * item.purchasedQty}
                   </div>
                   <div>{order.paymentStatus}</div>
                 </div>

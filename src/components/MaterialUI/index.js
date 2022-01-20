@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-
+import {Button} from '@mui/material';
 /**
  * @author Rizwan Khan
  * @function
@@ -14,8 +14,10 @@ const Modal = (props) => {
     <>
       <div className="modalFixedBg">
         <div style={{ position: "relative" }}>
-          <div className="modalClose" onClick={props.onClose}>
-            X
+          <div >
+            <Button className="modalClose" onClick={props.onClose}>
+              X
+            </Button>
           </div>
           <div className="modalContainer">{props.children}</div>
         </div>
