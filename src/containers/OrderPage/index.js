@@ -39,7 +39,7 @@ const OrderPage = (props) => {
         />
         {user.orders.map((order) => {
           return order.items.map((item) => (
-            <Card style={{ display: "block", margin: "5px 0" }}>
+            <Card style={{ display: "block", margin: "5px 0",padding:'10px' }}>
               <Link
                 to={`/order_details/${order._id}`}
                 className="orderItemContainer"
