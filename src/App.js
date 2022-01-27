@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import ProductListPage from './containers/ProductListPage';
 import { useDispatch, useSelector } from 'react-redux';
-import { isUserLoggedIn,updateCart } from './actions';
+import { isUserLoggedIn, updateCart } from './actions';
 import ProductDetailsPages from './containers/ProductDetailsPages';
 import CartPage from './containers/CartPage';
 import CheckoutPage from './containers/CheckoutPage';
@@ -12,14 +12,15 @@ import OrderPage from "./containers/OrderPage";
 import OrderDetailsPage from "./containers/OrderDetailsPage";
 
 function App() {
-  const dispatch  = useDispatch();
+  const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
 
 
   useEffect(() => {
-    
-    if(!auth.authenticate){
+
+    if (!auth.authenticate) {
       dispatch(isUserLoggedIn());
+
     }
 
   }, [auth.authenticate]);

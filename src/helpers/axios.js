@@ -11,6 +11,11 @@ const axiosIntance = axios.create({
     Authorization: token ? `Bearer ${token}` : "",
   },
 });
+axiosIntance.defaults.headers = {
+  'Cache-Control': 'no-cache',
+  'Pragma': 'no-cache',
+  'Expires': '0',
+};
 
 axiosIntance.interceptors.request.use((req) => {
   const { auth } = store.getState();

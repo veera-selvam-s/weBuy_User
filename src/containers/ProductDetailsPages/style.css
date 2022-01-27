@@ -64,11 +64,20 @@
     display: flex;
     align-items: center;
 }
+.carousel-item > img{
+    width:auto;
+}
 @media screen and (max-width: 900px){
     .productDescriptionContainer{
         flex-wrap: wrap;
     }
     
+}
+@media screen and (max-width: 500px){
+    .carousel-item > img{
+        width:100%;
+    }
+      
 }
 @media screen and (max-width: 300px){
     
@@ -76,5 +85,5 @@
         font-size: 8px;
         margin:0;
     }
-    
+   
 }

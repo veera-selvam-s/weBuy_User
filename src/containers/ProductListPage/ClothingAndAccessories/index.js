@@ -31,14 +31,15 @@ const ClothingAndAccessories = (props) => {
           display: "flex",
         }}
       >
+        <div style={{display:'flex',flexWrap:'wrap'}}>
         {product.products.map((product) => (
-          <div style={{display:'flex',flexWrap:'wrap'}}>
+          
           <div className="caContainer">
             <Link
               className="caImgContainer"
               to={`/${product.slug}/${product._id}/p`}
             >
-              <img src={generatePublicUrl(product.productPictures[0].img)} />
+              <img  src={generatePublicUrl(product.productPictures[0].img)} />
             </Link>
             <div>
               <div className="caProductName">{product.name}</div>
@@ -48,8 +49,9 @@ const ClothingAndAccessories = (props) => {
               </div>
             </div>
           </div>
-          </div>
+         
         ))}
+         </div>
       </Card>
     </div>
   );

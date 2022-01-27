@@ -101,7 +101,7 @@ const ProductDetailsPage = (props) => {
                 {
                   product.productDetails.productPictures.map((thumb, index) =>
                     <Carousel.Item interval={3000}>
-                      <img style={{maxHeight:'300px',width:'auto',}} src={generatePublicUrl(thumb.img)} alt={thumb.img} />
+                      <img style={{maxHeight:'300px'}} src={generatePublicUrl(thumb.img)} alt={thumb.img} />
                     </Carousel.Item>
                   )
                 }
