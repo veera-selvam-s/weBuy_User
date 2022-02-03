@@ -193,7 +193,7 @@ const Headers = (props) => {
                     </div>
                 </div>
             </Modal>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+            <Navbar collapseOnSelect expand="lg" variant="dark" >
                 <Container fluid>
                     <Navbar.Brand>
                         <Link to="/">

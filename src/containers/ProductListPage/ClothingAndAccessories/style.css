@@ -1,4 +1,8 @@
 .caContainer{
+        display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    text-align: center;
     width: 250px;
     margin: 10px 20px;
     padding:10px;
@@ -24,6 +28,7 @@
     padding: 10px 0;
 }
 .caProductPrice{
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0px;
 }

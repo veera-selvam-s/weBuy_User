@@ -27,10 +27,10 @@ const MenuHeader = (props) => {
       myCategories.push(
         <li key={category.name}>
           {
-            category.parentId ? <Link
-              to={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
+            category.parentId ? <a
+              href={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
               {category.name}
-            </Link> :
+            </a> :
               <span>{category.name}</span>
           }
           {category.children.length > 0 ? (<ul>{renderCategories(category.children)}</ul>) : null}
@@ -51,9 +51,9 @@ const MenuHeader = (props) => {
                 {category.children.length > 0 ? TreeViewForMobile(category.children) : null}
               </TreeItem>
               :
-              <NavLink className="link" to={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
+              <a className="link" href={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
                 <TreeItem label={category.name} />
-              </NavLink>
+              </a>
           }
         </>
       )

@@ -11,7 +11,10 @@
   margin: 0 auto;   
   align-items: center;
 }
-
+.navbar{
+  background: rgb(252,252,252);
+  background: linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(254,162,48,1) 45%, rgba(255,141,0,1) 100%);
+}
 .logo{
 width:100%;
 height:auto;
@@ -25,9 +28,12 @@ align-items: flex-end;
   width: 69px;
   height:auto;
 }
-.Navbrand{
-color:#fff;
+.navbar-dark .navbar-brand{
+color:#000000;
 padding-left: 2px;
+}
+.navbar-dark .navbar-brand:hover{
+  color:#1976d2;
 }
 .exploreText{ 
   font-size: 10px;

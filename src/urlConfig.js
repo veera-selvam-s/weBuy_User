@@ -4,3 +4,6 @@ export const api =`https://webuybackend.run-ap-south1.goorm.io/api`;
 export const generatePublicUrl = (fileName) => {
   return `https://webuybackend.run-ap-south1.goorm.io/public/${fileName}`;
 };
+export const pageUrl=(fileName)=>{
+  return `https://webuybackend.run-ap-south1.goorm.io${fileName}`;
+}

@@ -31,7 +31,7 @@ const ClothingAndAccessories = (props) => {
           display: "flex",
         }}
       >
-        <div style={{display:'flex',flexWrap:'wrap'}}>
+        <div style={{display:'flex',flexWrap:'wrap',justifyContent:'space-around'}}>
         {product.products.map((product) => (
           
           <div className="caContainer">

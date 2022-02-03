@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductPage } from '../../../actions';
+import { pageUrl } from "../../../urlConfig";
 import getParams from '../../../utils/getParams';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Card from '../../../components/UI/Card';
+import './style.css'
 
 /**
 * @author
@@ -19,7 +21,7 @@ const ProductPage = (props) => {
 
     useEffect(() => {
         const params = getParams(props.location.search);
-        console.log({params});
+        console.log({ params });
         const payload = {
             params
         }
@@ -31,16 +33,16 @@ const ProductPage = (props) => {
         <div style={{ margin: '0 10px' }}>
             <h3>{page.title}</h3>
             <Carousel
-                renderThumbs={() => {}}
+                renderThumbs={() => { }}
             >
                 {
-                    page.banners && page.banners.map((banner, index) => 
-                        <a 
+                    page.banners && page.banners.map((banner, index) =>
+                        <a
                             key={index}
                             style={{ display: 'block' }}
-                            href={banner.navigateTo}
+                            
                         >
-                            <img src={banner.img} alt="" />
+                            <img className="carl-img" src={pageUrl(banner.img)} alt="" />
                         </a>
                     )
                 }
@@ -52,8 +54,8 @@ const ProductPage = (props) => {
                 margin: '10px 0'
             }}>
                 {
-                    page.products && page.products.map((product, index) => 
-                        <Card 
+                    page.products && page.products.map((product, index) =>
+                        <Card
                             key={index}
                             style={{
                                 width: '400px',
@@ -64,7 +66,7 @@ const ProductPage = (props) => {
                             <img style={{
                                 width: '100%',
                                 height: '100%'
-                            }} src={product.img} alt="" />
+                            }} src={pageUrl(product.img)} alt="" />
                         </Card>
                     )
                 }

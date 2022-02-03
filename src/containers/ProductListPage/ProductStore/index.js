@@ -45,7 +45,7 @@ const ProductStore = (props) => {
               margin: "20px",
             }}
           >
-            <div className="cardBody" style={{ display: "flex",flexWrap:'wrap' }}>
+            <div className="cardBody" style={{ display: "flex",flexWrap:'wrap',justifyContent:'space-around' }}>
               {product.productsByPrice[key].map((product) => (
                 <Link
                   to={`/${product.slug}/${product._id}/p`}

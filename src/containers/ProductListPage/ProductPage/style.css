@@ -1,0 +1,12 @@
+.carl-img{
+    height:385px;
+}
+.carousel .slide img{
+    height: auto;
+}
+@media screen and (max-width:500px) {
+    .carousel .slider-wrapper{
+        width:auto;
+        height:auto
+    }
+}
