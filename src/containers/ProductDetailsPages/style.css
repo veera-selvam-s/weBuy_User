@@ -75,7 +75,7 @@
 }
 @media screen and (max-width: 500px){
     .carousel-item > img{
-        width:100%;
+        width: auto;
     }
       
 }
